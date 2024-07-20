@@ -1,3 +1,6 @@
+import { SignedIn, SignedOut, UserButton } from '@clerk/clerk-react';
+import { Link } from 'react-router-dom';
+
 const Navbar = () => {
   return (
     <header className="bg-white dark:bg-gray-900">
@@ -86,17 +89,13 @@ const Navbar = () => {
                 className="rounded-md bg-teal-600 px-5 py-2.5 text-sm font-medium text-white shadow dark:hover:bg-teal-500"
                 href="#"
               >
-                Login
+                <SignedIn>
+                  <UserButton />
+                </SignedIn>
+                <SignedOut>
+                  <Link to="/sign-in">Sign In</Link>
+                </SignedOut>
               </a>
-
-              <div className="hidden sm:flex">
-                <a
-                  className="rounded-md bg-gray-100 px-5 py-2.5 text-sm font-medium text-teal-600 dark:bg-gray-800 dark:text-white dark:hover:text-white/75"
-                  href="#"
-                >
-                  Register
-                </a>
-              </div>
             </div>
 
             <div className="block md:hidden">
